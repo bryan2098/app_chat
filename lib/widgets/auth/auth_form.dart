@@ -1,3 +1,4 @@
+import '../pickers/user_picker_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -39,13 +40,7 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
-                  CircleAvatar(radius: 40),
-                  FlatButton.icon(
-                    onPressed: () {},
-                    icon: Icon(Icons.image),
-                    label: Text('Add image'),
-                    textColor: Theme.of(context).primaryColor,
-                  ),
+                  if (!_isLogin) UserImagePicker(),
                   TextFormField(
                     key: ValueKey('email'),
                     validator: (value) {
