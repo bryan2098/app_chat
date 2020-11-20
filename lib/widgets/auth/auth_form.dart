@@ -21,8 +21,8 @@ class _AuthFormState extends State<AuthForm> {
     final isValid = _formKey.currentState.validate();
     FocusScope.of(context).unfocus();
     if (isValid) {
-      _formKey.currentState.save();
       widget.submitFn(_userEmail.trim(), _userPassword.trim(), _userName.trim(), _isLogin, context);
+      _formKey.currentState.save();
     }
   }
 
@@ -39,6 +39,13 @@ class _AuthFormState extends State<AuthForm> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
+                  CircleAvatar(radius: 40),
+                  FlatButton.icon(
+                    onPressed: () {},
+                    icon: Icon(Icons.image),
+                    label: Text('Add image'),
+                    textColor: Theme.of(context).primaryColor,
+                  ),
                   TextFormField(
                     key: ValueKey('email'),
                     validator: (value) {
